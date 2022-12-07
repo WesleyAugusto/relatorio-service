@@ -1,18 +1,16 @@
 package br.com.curso.consumer
 
-import br.com.curso.model.Venda
-import com.fasterxml.jackson.databind.ObjectMapper
+import br.com.curso.model.Vendas
+import io.micronaut.configuration.kafka.annotation.KafkaKey
 import io.micronaut.configuration.kafka.annotation.KafkaListener
-import io.micronaut.configuration.kafka.annotation.OffsetReset
 import io.micronaut.configuration.kafka.annotation.Topic
 
-@KafkaListener(offsetReset = OffsetReset.EARLIEST)
-class VendaConsumer(private val objectMapper: ObjectMapper) {
+@KafkaListener
+class VendaConsumer() {
 
     @Topic("ms-vendas")
-    fun recebervenda(id:String, vendaJSON:String){
-
-        val venda = objectMapper.readValue(vendaJSON, Venda::class.java)
+    fun recebervenda(@KafkaKey id: String, vendas: Vendas) {
+        println(vendas)
 
     }
 }

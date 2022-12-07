@@ -1,7 +1,12 @@
 micronaut:
   application:
     name: relatorioService
+  server:
+    port: 8082
 netty:
   default:
     allocator:
       max-order: 3
+kafka:
+  booststrap:
+    servers: localhost:9092
