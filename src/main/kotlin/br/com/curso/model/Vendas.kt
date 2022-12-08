@@ -1,9 +1,10 @@
 package br.com.curso.model
 
+@NoArg
 data class Vendas(
-    val cliente: String,
-    val veiculo: Veiculo,
-    val venda: VendaInput,
-    val parcelas: List<Parcela>
+    var cliente: String,
+    var veiculo: Veiculo,
+    var venda: VendaInput,
+    var parcelas: List<Parcela>
 )
 
